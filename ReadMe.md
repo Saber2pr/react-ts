@@ -1,5 +1,7 @@
 # react-ts
 
+> react + ts + less + webpack.
+
 ```bash
 npm i
 
