@@ -48,6 +48,6 @@ module.exports = WebpackConfig({
     ]
   },
   plugins: [new HtmlWebpackPlugin({
-    templateContent
+    templateContent: templateContent('react-ts')
   }), extractLess]
 })
