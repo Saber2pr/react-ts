@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanCSSPlugin = require('less-plugin-clean-css')
 const path = require('path')
 
-const extractLess = new ExtractTextPlugin('style-[hash].css')
+const extractLess = new ExtractTextPlugin('style.min.css')
 
 const {
   WebpackConfig,
@@ -14,10 +14,10 @@ module.exports = WebpackConfig({
   mode: 'development',
   entry: './src/index.tsx',
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   output: {
-    filename: 'bundle-[hash].js',
+    filename: 'bundle.min.js',
     path: path.join(__dirname, 'build')
   },
   module: {
@@ -26,7 +26,7 @@ module.exports = WebpackConfig({
         use: ['ts-loader']
       },
       {
-        test: /\.less$/,
+        test: /\.(css|less)$/,
         use: extractLess.extract({
           use: [{
               loader: 'css-loader'
@@ -44,10 +44,16 @@ module.exports = WebpackConfig({
           ],
           fallback: 'style-loader'
         })
+      },
+      {
+        test: /\.(woff|svg|eot|ttf)$/,
+        use: ['url-loader']
       }
     ]
   },
   plugins: [new HtmlWebpackPlugin({
-    templateContent: templateContent('react-ts')
+    templateContent: templateContent('react-ts', {
+      injectBody: '<div id="root"></div>'
+    })
   }), extractLess]
 })
