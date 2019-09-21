@@ -1,5 +1,7 @@
-import React from 'react'
-import './app.less'
+import React from "react"
+import ReactDOM from "react-dom"
+import "normalize.css"
+import "./app.less"
 
 export const App = () => {
   return (
@@ -10,3 +12,5 @@ export const App = () => {
     </>
   )
 }
+
+ReactDOM.render(<App />, document.getElementById("root"))
