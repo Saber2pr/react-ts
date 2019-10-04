@@ -8,7 +8,6 @@ const extractLess = new ExtractTextPlugin("style.min.css")
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
 
 module.exports = WebpackConfig({
-  mode: "development",
   entry: "./src/app.tsx",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"]
