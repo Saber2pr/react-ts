@@ -7,8 +7,8 @@ const publicPath = (resourcePath, context) =>
 
 const cdn = '//cdn.jsdelivr.net/gh'
 const username = 'saber2pr'
-const repo = 'react-ts'
 const pages_branch = 'gh-pages'
+const repo = 'react-ts' // github 仓库
 
 module.exports = {
   entry: "./src/app.tsx",
