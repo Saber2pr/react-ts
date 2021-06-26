@@ -3,10 +3,9 @@
     "target": "es5",
     "module": "commonjs",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "jsx": "react",
-    "declaration": true,
-    "outDir": "lib",
-    "lib": ["dom", "es2015"]
+    "lib": ["dom", "es2015", "esnext"]
   },
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules"]
 }
