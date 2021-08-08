@@ -48,7 +48,12 @@ module.exports = {
             options: { publicPath },
           },
           'css-loader',
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          },
         ],
       },
     ],
