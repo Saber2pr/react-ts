@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require("path")
+const webpack = require('webpack')
 
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
@@ -66,6 +67,7 @@ module.exports = {
       filename: '[name][hash].css',
       chunkFilename: 'style.[id][hash].css',
     }),
+    new webpack.ProgressPlugin(),
   ],
   watchOptions: {
     aggregateTimeout: 1000,

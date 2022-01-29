@@ -1,16 +1,18 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import "normalize.css"
-import "./app.less"
+import 'normalize.css';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Title } from './app.style';
 
 export const App = () => {
   return (
     <>
-      <header className="title">app</header>
+      <Title />
       <main>helloworld</main>
       <footer>footer</footer>
     </>
-  )
-}
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById('root'));
