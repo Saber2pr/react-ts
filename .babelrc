@@ -6,6 +6,15 @@
   ],
   "plugins": [
     [
+      "babel-plugin-module-resolver",
+      {
+        "root": ".",
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ],
+    [
       "babel-plugin-import",
       {
         "libraryName": "antd",
