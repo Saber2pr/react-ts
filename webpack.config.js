@@ -1,17 +1,17 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
-const webpack = require('webpack');
-const webpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack')
+const webpackDevServer = require('webpack-dev-server')
 
 const publicPath = (resourcePath, context) =>
-  path.relative(path.dirname(resourcePath), context) + '/';
+  path.relative(path.dirname(resourcePath), context) + '/'
 
-const cdn = '//cdn.jsdelivr.net/gh';
-const username = 'saber2pr';
-const pages_branch = 'gh-pages';
-const repo = 'react-ts'; // github 仓库
+const cdn = '//cdn.jsdelivr.net/gh'
+const username = 'saber2pr'
+const pages_branch = 'gh-pages'
+const repo = 'react-ts' // github 仓库
 
 /**
  * @type {webpack.Configuration}
@@ -96,20 +96,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      name: true,
       cacheGroups: {
-        react: {
-          name: 'react',
-          test: /[\\/]node_modules[\\/]react[\\/]/,
-        },
-        'react-dom': {
-          name: 'react-dom',
-          test: /[\\/]node_modules[\\/]react-dom[\\/]/,
-        },
-        antd: {
-          name: 'antd',
-          test: /[\\/]node_modules[\\/]antd[\\/]/,
-        },
         vendors: {
           name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
@@ -117,4 +104,4 @@ module.exports = {
       },
     },
   },
-};
+}
