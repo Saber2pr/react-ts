@@ -2,10 +2,13 @@
   "name": "react-ts",
   "version": "0.0.1",
   "description": "react, ts, less tpl",
+  "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack"
+    "lint": "prettier --write ./src",
+    "build": "rimraf ./build && cross-env NODE_ENV=production webpack",
+    "prepare": "husky install"
   },
   "author": "saber2pr",
   "repository": {
@@ -20,27 +23,45 @@
     "tpl"
   ],
   "dependencies": {
-    "@types/react": "^16.8.19",
-    "@types/react-dom": "^16.8.4",
-    "@types/styled-components": "^5.1.21",
+    "antd": "^4.18.7",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-components": "^5.1.21",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "4.5.0",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-import": "^1.13.3",
     "cross-env": "^6.0.0",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^7.0.4",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "lint-staged": "^12.3.4",
     "mini-css-extract-plugin": "^1.6.1",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "style-loader": "^0.23.1",
-    "ts-loader": "^6.0.2",
     "typescript": "^3.5.1",
     "url-loader": "^2.0.0",
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint",
+      "git add ."
+    ]
   }
 }
