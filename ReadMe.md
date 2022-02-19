@@ -1,6 +1,6 @@
 # react-ts
 
-react csr 项目脚手架
+react-ts
 
 ```bash
 yarn
