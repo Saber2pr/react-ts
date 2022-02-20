@@ -79,7 +79,7 @@ module.exports = {
   plugins: [
     // index.html模板设置
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'template.html'),
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
