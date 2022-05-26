@@ -8,10 +8,8 @@ const webpackDevServer = require('webpack-dev-server')
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
-const cdn = '//cdn.jsdelivr.net/gh'
-const username = 'saber2pr'
-const pages_branch = 'gh-pages'
-const repo = 'react-ts' // github 仓库
+// 这里写cdn地址，如果静态资源有上传的话
+const cdn = '/'
 
 /**
  * @type {webpack.Configuration}
@@ -25,9 +23,7 @@ module.exports = {
     filename: '[name].[hash].min.js',
     path: path.join(__dirname, 'build'),
     publicPath:
-      process.env.NODE_ENV === 'production'
-        ? `${cdn}/${username}/${repo}@${pages_branch}/`
-        : '/',
+      process.env.NODE_ENV === 'production' ? cdn : '/',
   },
   /**
    * @type {webpackDevServer.Configuration}
@@ -36,11 +32,10 @@ module.exports = {
     // 本地调试跨域代理
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:3000',
+        target: 'http://127.0.0.1:3000', // 这里写你后端的api地址
         changeOrigin: true,
         pathRewrite: {
-          // 本地走/dev-api，线上走/api
-          '^/dev-api': '/api',
+          '^/api': '/api',
         },
       },
     },

@@ -6,6 +6,8 @@ react-ts
 yarn
 yarn dev
 yarn build
+
+# http://localhost:8081/
 ```
 
 ## 特性
